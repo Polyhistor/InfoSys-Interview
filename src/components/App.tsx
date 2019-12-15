@@ -4,7 +4,7 @@ import { Album, Photo, fetchAlbums, fetchPhotos } from "../actions";
 import { StoreState } from "../reducers";
 
 // *Notice: in this file we have used React.UseEffect and React.UseState instead of importing
-// hooks directly from React. That's for the reasons of testing and how Enzyme has not yet adopted
+// hooks directly from React. That's for the reasons of testing and how Enzyme and Jest have not yet adopted
 // very well with hooks.
 
 // the type of your action creators has been intentionally set to "any", as typescript does not play well with redux-thunk
