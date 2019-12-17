@@ -1,4 +1,5 @@
 import React from "react";
+import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import { Album, Photo, fetchAlbums, fetchPhotos } from "../actions";
 import { StoreState } from "../reducers";
@@ -9,7 +10,7 @@ import { Button } from "./Button";
 interface AppProps {
   albums: Album[];
   photos: Photo[];
-  fetchAlbums(): any;
+  fetchAlbums(): () => Dispatch;
   fetchPhotos(id: number): any;
 }
 

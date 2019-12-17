@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { Photo } from "../actions";
 
-// interface ImagesProps {
-//   imagesData: boolean | Photo[];
-// }
+interface ImagesProps {
+  imagesData: Photo[];
+}
 
-export const Images = ({ imagesData }: any): JSX.Element[] | any => {
-  const [image, setImage] = React.useState();
+export const Images = ({ imagesData }: ImagesProps): JSX.Element[] | any => {
+  const [image, setImage]: [
+    number | undefined,
+    Dispatch<SetStateAction<number | undefined>>
+  ] = React.useState();
 
-  // Type guard
-  // if(imagesData instanceof Photo){
-  //   return <div>yo</div>
-  // }
-
-  return imagesData.map((element: Photo, idx: number) => {
-    return (
+  return imagesData.map(
+    (element: Photo, idx: number): JSX.Element => (
       <img
         className="image"
         onClick={() => setImage(element.id)}
@@ -22,6 +20,6 @@ export const Images = ({ imagesData }: any): JSX.Element[] | any => {
         alt={element.title}
         src={image === element.id ? element.url : element.thumbnailUrl}
       ></img>
-    );
-  });
+    )
+  );
 };

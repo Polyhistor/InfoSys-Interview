@@ -5,13 +5,13 @@ interface ButtonProps {
   ClickHandler: () => void;
 }
 
-export const Button = ({ ClickHandler, fetching }: ButtonProps) => {
-  return (
-    <div>
-      <button className="container__button" onClick={() => ClickHandler()}>
-        Fetch Albums
-      </button>
-      {fetching ? "loading" : null}
-    </div>
-  );
-};
+export const Button = ({
+  ClickHandler,
+  fetching
+}: ButtonProps): React.ReactElement => (
+  <div>
+    <button className="container__button" onClick={() => ClickHandler()}>
+      {fetching ? "loading" : "Fetch Albums"}
+    </button>
+  </div>
+);

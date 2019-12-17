@@ -16,8 +16,8 @@ export const Albums = ({
   Photos
 }: AlbumsProps): JSX.Element[] | any => {
   return albumsData.map((album: Album) => {
-    // filtering out the corresponding thumbnail
-    const filteredImages: boolean | Photo[] = thumbnailsFilter(
+    // filtering out the corresponding thumbnail and destructing our identifier and array of relevant images
+    const [empty, filteredImages]: [boolean, Photo[]] = thumbnailsFilter(
       album.id,
       Photos
     );
@@ -28,7 +28,7 @@ export const Albums = ({
           {album.title}
         </h2>
 
-        {filteredImages !== false ? (
+        {empty !== true ? (
           <div className="albums__thumbnails">
             <Images imagesData={filteredImages}></Images>
           </div>
