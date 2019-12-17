@@ -9,6 +9,9 @@ export const Images = ({ imagesData }: any): JSX.Element[] | any => {
   const [image, setImage] = React.useState();
 
   // Type guard
+  // if(imagesData instanceof Photo){
+  //   return <div>yo</div>
+  // }
 
   return imagesData.map((element: Photo, idx: number) => {
     return (
