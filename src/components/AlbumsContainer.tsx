@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Album, Photo, fetchAlbums, fetchPhotos } from "../actions";
 import { StoreState } from "../reducers";
@@ -19,10 +19,10 @@ export const _AlbumsContainer = ({
   fetchAlbums,
   fetchPhotos
 }: AppProps) => {
-  const [fetching, setFetching] = React.useState(false);
+  const [fetching, setFetching] = useState(false);
 
   // setting the state back to false once our data updates
-  React.useEffect(() => {
+  useEffect(() => {
     setFetching(false);
   }, [albums, photos]);
 

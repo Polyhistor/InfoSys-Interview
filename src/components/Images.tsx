@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import { Photo } from "../actions";
 
 interface ImagesProps {
@@ -9,7 +9,7 @@ export const Images = ({ imagesData }: ImagesProps): JSX.Element[] | any => {
   const [image, setImage]: [
     number | undefined,
     Dispatch<SetStateAction<number | undefined>>
-  ] = React.useState();
+  ] = useState();
 
   return imagesData.map(
     (element: Photo, idx: number): JSX.Element => (
