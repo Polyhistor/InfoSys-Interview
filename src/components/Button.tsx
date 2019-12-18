@@ -1,16 +1,16 @@
 import React from "react";
 
-interface ButtonProps {
+export interface ButtonProps {
   fetching: boolean;
-  ClickHandler: () => void;
+  clickHandler: () => void;
 }
 
 export const Button = ({
-  ClickHandler,
+  clickHandler,
   fetching
 }: ButtonProps): React.ReactElement => (
   <div>
-    <button className="container__button" onClick={() => ClickHandler()}>
+    <button className="container__button" onClick={() => clickHandler()}>
       {fetching ? "loading" : "Fetch Albums"}
     </button>
   </div>

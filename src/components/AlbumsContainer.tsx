@@ -1,5 +1,4 @@
 import React from "react";
-import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import { Album, Photo, fetchAlbums, fetchPhotos } from "../actions";
 import { StoreState } from "../reducers";
@@ -10,7 +9,7 @@ import { Button } from "./Button";
 interface AppProps {
   albums: Album[];
   photos: Photo[];
-  fetchAlbums(): () => Dispatch;
+  fetchAlbums(): any;
   fetchPhotos(id: number): any;
 }
 
@@ -38,13 +37,15 @@ export const _AlbumsContainer = ({
     fetchPhotos(id);
   };
 
+  // in an application with larger logic and in the case of more expensive clickHandler function,
+  // useCallback would be a perfect approach for optimization
   return (
     <>
-      <Button fetching={fetching} ClickHandler={ClickHandler}></Button>
+      <Button fetching={fetching} clickHandler={ClickHandler}></Button>
       <Albums
         albumsData={albums}
         clickHandler={AlbumClickHandler}
-        Photos={photos}
+        photos={photos}
       />
     </>
   );

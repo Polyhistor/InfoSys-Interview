@@ -7,19 +7,19 @@ import { Photo } from "../actions";
 export interface AlbumsProps {
   albumsData: Album[];
   clickHandler: (id: number) => void;
-  Photos: Photo[];
+  photos: Photo[];
 }
 
 export const Albums = ({
   albumsData,
   clickHandler,
-  Photos
+  photos
 }: AlbumsProps): JSX.Element[] | any => {
   return albumsData.map((album: Album) => {
     // filtering out the corresponding thumbnail and destructing our identifier and array of relevant images
     const [empty, filteredImages]: [boolean, Photo[]] = thumbnailsFilter(
       album.id,
-      Photos
+      photos
     );
 
     return (
